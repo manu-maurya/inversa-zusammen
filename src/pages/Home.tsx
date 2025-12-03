@@ -13,10 +13,9 @@ const Home = () => {
         <div className="z-10 max-w-xl px-8 text-center mt-8">
           <h1 className="text-3xl/snug font-medium text-black">
             More Than Admissions.
-          </h1>
-          <span className="text-3xl/snug font-medium text-black">
+            <br />
             It’s About Informed Decisions.
-          </span>
+          </h1>
           <p className="text-sm text-gray-700 mt-4">
             Zusamen is not just about getting into a university — it’s about
             connecting with real people who’ve been there, learning from their

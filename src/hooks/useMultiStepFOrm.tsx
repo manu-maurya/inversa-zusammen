@@ -2,7 +2,9 @@ import { useState } from "react";
 import {
   basicInformationSchema,
   checklistSchema,
+  previsachecklistSchema,
   studentsDocumentSchema,
+  visachecklistSchema,
   type Step,
   type StepFormData,
 } from "../types";
@@ -11,43 +13,50 @@ const stepSchema = [
   basicInformationSchema,
   studentsDocumentSchema,
   checklistSchema,
+  visachecklistSchema,
+  previsachecklistSchema,
 ];
 
 export const steps: Step[] = [
   {
-    id: "",
-    name: "",
+    id: "basic",
+    name: "Basic Information",
     icon: User,
     schema: basicInformationSchema,
+    label: "Student Basic Information",
   },
   {
-    id: "",
-    name: "",
+    id: "document",
+    name: "Student Documents",
     icon: User,
     schema: studentsDocumentSchema,
+    label: "Student Documents",
   },
   {
-    id: "",
-    name: "",
+    id: "app checklist",
+    name: "Application Checklist",
     icon: User,
     schema: checklistSchema,
+    label: "Application CHecklistn",
   },
   {
-    id: "",
-    name: "",
+    id: "pre-visa",
+    name: "Pre-Visa Checklist",
     icon: User,
-    schema: checklistSchema,
+    schema: previsachecklistSchema,
+    label: "Pre-Visa Checklist",
   },
   {
-    id: "",
-    name: "",
+    id: "visa",
+    name: "Visa Checklist",
     icon: User,
-    schema: checklistSchema,
+    schema: visachecklistSchema,
+    label: "Visa Checklist",
   },
 ];
 
 export function useMultiStepForm() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(3);
   const [formData, setFOrmData] = useState<Partial<StepFormData>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const isFirst = currentStep === 0;
