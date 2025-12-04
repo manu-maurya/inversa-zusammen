@@ -14,7 +14,6 @@ import {
 import { Check } from "lucide-react";
 
 const MultiStepForm = () => {
-  
   const {
     currentStep,
     formData,
@@ -43,21 +42,25 @@ const MultiStepForm = () => {
     mode: "onChange",
     defaultValues: formData,
   });
+
   const navigate = useNavigate();
+
   useEffect(() => {
     reset(formData);
   }, [currentStep, formData, reset]);
+
   const onNext = async (data: StepFormData) => {
     const isValid = await trigger();
     if (!isValid) return;
     console.log(data, formData);
-
     const updatedData = { ...formData, ...data };
     updateForm(updatedData);
     if (isLast) {
       try {
         submitForm(updatedData);
-        navigate('/final')
+        if (isSubmitted) {
+          navigate("/final");
+        }
       } catch (error) {
         console.log("Failed", error);
       }
@@ -71,7 +74,7 @@ const MultiStepForm = () => {
   };
   return (
     <div className="min-h-screen bg-white flex flex-col items-center pb-12">
-      <div className="w-full h-16 bg-white px-12 mt-2 flex items-center justify-between">
+      <div className="w-full h-16 bg-white px-6 md:px-12 mt-2 flex items-center justify-between">
         <img src="src/assets/logo.png" alt="logo" />
         <button
           className="border border-gray-300 px-4 py-2 rounded-md text-sm hover:bg-gray-50 hover:scale-105 transition-all"
@@ -81,7 +84,7 @@ const MultiStepForm = () => {
         </button>
       </div>
       <div className="w-full max-w-4xl mt-8 px-4">
-        <div className="flex justify-between items-center mb-12 max-w-3xl mx-auto">
+        <div className="flex justify-between items-center mb-6 md:mb-12 max-w-3xl mx-auto px-8 md:px-0">
           {steps.map((step, index) => {
             const isCompleted = index < currentStep;
             const isActive = index === currentStep;
@@ -119,7 +122,7 @@ const MultiStepForm = () => {
                     )}
                   </div>
                   <span
-                    className={`absolute z-10 text-xs mt-5 font-medium ${
+                    className={`absolute z-10 hidden md:flex text-xs mt-5 font-medium ${
                       isActive
                         ? "text-black font-bold"
                         : "text-gray-500 font-normal"
