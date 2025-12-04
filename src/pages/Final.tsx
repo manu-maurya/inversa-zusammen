@@ -1,4 +1,3 @@
-import React from "react";
 
 const Final = () => {
   return (
@@ -6,7 +5,7 @@ const Final = () => {
       <div className="hidden w-1/2 flex-col items-center relative lg:flex">
         <div className="absolute inset-0 z-0">
           <img
-            src="src/assets/home.png"
+            src="/home.png"
             alt="left"
             className="h-full w-full object-cover opacity-80"
           />
@@ -28,7 +27,7 @@ const Final = () => {
       </div>
       <div className="flex w-full justify-center py-12 px-8 lg:w-1/2">
         <img
-          src="src/assets/final.png"
+          src="/final.png"
           alt="final"
           className="object-scale-down"
         />
