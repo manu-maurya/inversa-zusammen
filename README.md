@@ -13,6 +13,14 @@ A responsive web application built as part of a Figma-to-Code challenge. This pr
 * **Dynamic Stepper**: visual progress indicator that updates based on the user's current stage in the form.
 * **Modern Styling**: Clean and maintainable styling using **Tailwind CSS**.
 
+
+## 🔮 Features Need to be implemented or can be implemented
+
+1.  **Authentication**: Implement secure user login and registration flows.
+2.  **File Upload Logic**: Backend integration to handle actual file uploads for documents and checklists.
+3.  **Final Response Page**: Enhance the submission success page with summary details and next steps.
+4.  **Animations**: Add smooth transitions between form steps and page loads using libraries like Framer Motion or Tailwind animate.
+
 ## 🛠️ Tech Stack
 
 * **Framework**: [React](https://react.dev/) + [Vite](zh-Hans)
@@ -23,27 +31,37 @@ A responsive web application built as part of a Figma-to-Code challenge. This pr
 * **Icons**: [Lucide React](https://lucide.dev/)
 * **Routing**: [React Router DOM](https://reactrouter.com/)
 
-## 🔮 Features Need to be implemented or can be implemented
-
-1.  **Authentication**: Implement secure user login and registration flows.
-2.  **File Upload Logic**: Backend integration to handle actual file uploads for documents and checklists.
-3.  **Final Response Page**: Enhance the submission success page with summary details and next steps.
-4.  **Animations**: Add smooth transitions between form steps and page loads using libraries like Framer Motion or Tailwind animate.
-
 ## 🎨 Live Demo
 [[Demo](https://manu-inversa-project.vercel.app/)]
 
-## Result(FormData)
-![Basic Information FormData](<img width="339" height="361" alt="Screenshot 2025-12-04 182238" src="https://github.com/user-attachments/assets/56fa05ee-1321-431a-a88c-ad8cd32d6e96" />
-)
-![Student Document FormData](<img width="294" height="141" alt="Screenshot 2025-12-04 182249" src="https://github.com/user-attachments/assets/145e995c-1394-4556-9901-5fe0f946fe2f" />
-)
-![Application Checklist FormData](<img width="255" height="56" alt="Screenshot 2025-12-04 182258" src="https://github.com/user-attachments/assets/b0153196-df1b-4794-a8e1-48c1b3c99cba" />
-)
-![Pre-Visa Checklist FormData](<img width="265" height="63" alt="Screenshot 2025-12-04 182307" src="https://github.com/user-attachments/assets/994b44ea-c8dc-4d1d-9a14-268b7148081d" />
-)
-![Visa Checklist FormData](<img width="263" height="58" alt="Screenshot 2025-12-04 182314" src="https://github.com/user-attachments/assets/d1f21f12-ec59-4f78-aee4-075d6192b7df" />
-)
-![Final FormData](<img width="459" height="483" alt="Screenshot 2025-12-04 182324" src="https://github.com/user-attachments/assets/d35b94be-a33d-47e6-9f3b-885612abac16" />
-)
-
+## 🚀 Result(FormData)
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/56fa05ee-1321-431a-a88c-ad8cd32d6e96" width="300" alt="Basic Information" /><br />
+      <b>Basic Information</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/145e995c-1394-4556-9901-5fe0f946fe2f" width="300" alt="Student Document" /><br />
+      <b>Student Document</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/b0153196-df1b-4794-a8e1-48c1b3c99cba" width="300" alt="Application Checklist" /><br />
+      <b>Application Checklist</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/994b44ea-c8dc-4d1d-9a14-268b7148081d" width="300" alt="Pre-Visa Checklist" /><br />
+      <b>Pre-Visa Checklist</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/d1f21f12-ec59-4f78-aee4-075d6192b7df" width="300" alt="Visa Checklist" /><br />
+      <b>Visa Checklist</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/d35b94be-a33d-47e6-9f3b-885612abac16" width="300" alt="Final Submission" /><br />
+      <b>Final Submission</b>
+    </td>
+  </tr>
+</table>
