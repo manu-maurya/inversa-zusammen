@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# Figma-to-code Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive web application built as part of a Figma-to-Code challenge. This project features a complex, multi-step form interface designed for collecting student details, document checklists, and visa application information with robust validation.
 
-Currently, two official plugins are available:
+## 🎨 Figma Design
+[[Figma](https://www.figma.com/design/cBbtd8t1Z3rhzwfxCm2G0O/Zuzamen?node-id=1604-2&t=IQSqigpGgkj6DavO-1)]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Key Features Implemented
 
-## React Compiler
+* **Responsive UI**: Fully adaptive layout that works seamlessly across desktop and mobile devices.
+* **Multi-Step Form**: A guided form experience splitting complex data entry into logical steps (Basic Info, Documents, Application Checklist, Pre-Visa, Visa).
+* **Schema Validation**: Implemented using **Zod** to ensure data integrity and provide real-time error feedback.
+* **Dynamic Stepper**: visual progress indicator that updates based on the user's current stage in the form.
+* **Modern Styling**: Clean and maintainable styling using **Tailwind CSS**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+* **Framework**: [React](https://react.dev/) + [Vite](zh-Hans)
+* **Language**: [TypeScript](https://www.typescriptlang.org/)
+* **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+* **Form Handling**: [React Hook Form](https://react-hook-form.com/)
+* **Validation**: [Zod](https://zwd.dev/)
+* **Icons**: [Lucide React](https://lucide.dev/)
+* **Routing**: [React Router DOM](https://reactrouter.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🔮 Features Need to be implemented or can be implemented
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  **Authentication**: Implement secure user login and registration flows.
+2.  **File Upload Logic**: Backend integration to handle actual file uploads for documents and checklists.
+3.  **Final Response Page**: Enhance the submission success page with summary details and next steps.
+4.  **Animations**: Add smooth transitions between form steps and page loads using libraries like Framer Motion or Tailwind animate.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🎨 Live Demo
+[[Demo](https://manu-inversa-project.vercel.app/)]
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Result(FormData)
+![Basic Information FormData](<img width="339" height="361" alt="Screenshot 2025-12-04 182238" src="https://github.com/user-attachments/assets/56fa05ee-1321-431a-a88c-ad8cd32d6e96" />
+)
+![Student Document FormData](<img width="294" height="141" alt="Screenshot 2025-12-04 182249" src="https://github.com/user-attachments/assets/145e995c-1394-4556-9901-5fe0f946fe2f" />
+)
+![Application Checklist FormData](<img width="255" height="56" alt="Screenshot 2025-12-04 182258" src="https://github.com/user-attachments/assets/b0153196-df1b-4794-a8e1-48c1b3c99cba" />
+)
+![Pre-Visa Checklist FormData](<img width="265" height="63" alt="Screenshot 2025-12-04 182307" src="https://github.com/user-attachments/assets/994b44ea-c8dc-4d1d-9a14-268b7148081d" />
+)
+![Visa Checklist FormData](<img width="263" height="58" alt="Screenshot 2025-12-04 182314" src="https://github.com/user-attachments/assets/d1f21f12-ec59-4f78-aee4-075d6192b7df" />
+)
+![Final FormData](<img width="459" height="483" alt="Screenshot 2025-12-04 182324" src="https://github.com/user-attachments/assets/d35b94be-a33d-47e6-9f3b-885612abac16" />
+)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
