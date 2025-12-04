@@ -23,7 +23,7 @@ const MultiStepForm = () => {
     goToPrevious,
     isFirst,
     isLast,
-    resetForm,
+    // resetForm,
     steps,
     submitForm,
     updateForm,

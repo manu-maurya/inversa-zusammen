@@ -15,7 +15,7 @@ interface StepProps {
   errors: Record<string, { message?: string }>;
   setValue?: ReturnType<typeof useForm<StepFormData>>["setValue"];
 }
-const Application = ({ register, errors, setValue }: StepProps) => {
+const Application = ({ setValue }: StepProps) => {
   const [selectedCourse, setSelectedCourse] = useState("");
   return (
     <div className="space-y-4">
