@@ -1,13 +1,27 @@
-import React from "react";
 import type { useForm } from "react-hook-form";
 import type { StepFormData } from "../../types";
+import { useState } from "react";
+import { Label } from "../ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import FormField from "../FormField";
 
 interface StepProps {
   register: ReturnType<typeof useForm<StepFormData>>["register"];
   errors: Record<string, { message?: string }>;
   setValue?: ReturnType<typeof useForm<StepFormData>>["setValue"];
 }
-const Docs = ({ register, errors }: StepProps) => {
+const Docs = ({ register, errors, setValue }: StepProps) => {
+  const [uploadOnBehalf, setUploadOnBehalf] = useState("");
+  const [category, setcategory] = useState("");
+  const [subCategory, setSubCategory] = useState("");
+  const [documentOriginCountry, SetDocumentOriginCountry] = useState("");
+  // const [document, setDocument] = useState("");
   return (
     <div className="space-y-4">
       <p className="text-sm font-normal">
@@ -20,59 +34,129 @@ const Docs = ({ register, errors }: StepProps) => {
         Please upload the document as per document checklist.
       </p>
       <div className="grid grid-cols-2 gap-4 mt-6">
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">
-            Upload on behalf
-          </label>
-          <input
-            type="text"
-            id="uploadOnBehalf"
-            {...register("uploadOnBehalf")}
-            {...errors}
-            disabled
-            placeholder="subscription"
-            className="w-full rounded-md border border-gray-400 px-4 py-2 text-sm outline-none focus:border-black focus:ring-1 focus:ring-gray-800"
-          />
+        <div className="space-y-2">
+          <Label htmlFor="uploadOnBehalf">
+            Upload on Behalf
+            <span className="text-red-500">*</span>
+          </Label>
+          <Select
+            onValueChange={(value) => {
+              setValue?.(
+                "uploadOnBehalf",
+                value as Extract<
+                  StepFormData,
+                  { uploadOnBehalf: string }
+                >["uploadOnBehalf"],
+                { shouldValidate: true }
+              );
+              setUploadOnBehalf(value);
+            }}
+            value={uploadOnBehalf}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select" />
+            </SelectTrigger>
+            <SelectContent className="bg-white">
+              <SelectItem value="student">Student</SelectItem>
+              <SelectItem value="teacher">Teacher</SelectItem>
+              <SelectItem value="other">Others</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">
+        <div className="space-y-2">
+          <Label htmlFor="category">
             Document Category
-          </label>
-          <input
-            // type="date"
-            disabled
-            id="category"
-            {...register("category")}
-            placeholder="category"
-            className="w-full rounded-md border border-gray-400 px-4 py-2 text-sm outline-none focus:border-black focus:ring-1 focus:ring-gray-800"
-          />
+            <span className="text-red-500">*</span>
+          </Label>
+          <Select
+            onValueChange={(value) => {
+              setValue?.(
+                "category",
+                value as Extract<
+                  StepFormData,
+                  { category: string }
+                >["category"],
+                { shouldValidate: true }
+              );
+              setcategory(value);
+            }}
+            value={category}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select" />
+            </SelectTrigger>
+            <SelectContent className="bg-white">
+              <SelectItem value="student">Student</SelectItem>
+              <SelectItem value="teacher">Teacher</SelectItem>
+              <SelectItem value="other">Others</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">
-            Document Sub Category
-          </label>
-          <input
-            type="text"
-            id="sunCategory"
-            {...register("uploadOnBehalf")}
-            disabled
-            placeholder="subscription"
-            className="w-full rounded-md border border-gray-400 px-4 py-2 text-sm outline-none focus:border-black focus:ring-1 focus:ring-gray-800"
-          />
+        <div className="space-y-2">
+          <Label htmlFor="subCategory">
+            Document Sub-Category
+            <span className="text-red-500">*</span>
+          </Label>
+          <Select
+            onValueChange={(value) => {
+              setValue?.(
+                "subCategory",
+                value as Extract<
+                  StepFormData,
+                  { subCategory: string }
+                >["subCategory"],
+                { shouldValidate: true }
+              );
+              setSubCategory(value);
+            }}
+            value={subCategory}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select" />
+            </SelectTrigger>
+            <SelectContent className="bg-white">
+              <SelectItem value="student">Student</SelectItem>
+              <SelectItem value="teacher">Teacher</SelectItem>
+              <SelectItem value="other">Others</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">
-            Select Document
-          </label>
-          <input
-            // type="date"
-            disabled
-            id="documentOriginCountry"
-            {...register("documentOriginCountry")}
-            placeholder="category"
-            className="w-full rounded-md border border-gray-400 px-4 py-2 text-sm outline-none focus:border-black focus:ring-1 focus:ring-gray-800"
-          />
+        <div className="space-y-2">
+          <Label htmlFor="documentOriginCountry">
+            Document Category
+            <span className="text-red-500">*</span>
+          </Label>
+          <Select
+            onValueChange={(value) => {
+              setValue?.(
+                "documentOriginCountry",
+                value as Extract<
+                  StepFormData,
+                  { documentOriginCountry: string }
+                >["documentOriginCountry"],
+                { shouldValidate: true }
+              );
+              SetDocumentOriginCountry(value);
+            }}
+            value={documentOriginCountry}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select" />
+            </SelectTrigger>
+            <SelectContent className="bg-white">
+              <SelectItem value="India">India</SelectItem>
+              <SelectItem value="other">Others</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
+      </div>
+      <div>
+        <FormField
+          id="file"
+          label="Choose File"
+          register={register}
+          errors={errors}
+        />
       </div>
     </div>
   );
