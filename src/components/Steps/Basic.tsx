@@ -30,7 +30,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
       <h3 className="text-sm px-4 py-2 bg-gray-100 w-fit rounded-md mt-8">
         Student Account Details
       </h3>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <FormField
             id="studentId"
@@ -109,7 +109,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
           />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <FormField
             id="email"
@@ -177,6 +177,8 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
             </SelectContent>
           </Select>
         </div>
+      </div>
+      <div className="grid md:grid-col-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="currentCountry">
             Student Currently Living in the Country
@@ -235,6 +237,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
           </Select>
         </div>
       </div>
+
       <div>
         <div className="flex flex-col ">
           <div className="space-y-2">

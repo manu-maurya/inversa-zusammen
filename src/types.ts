@@ -23,17 +23,17 @@ export const studentsDocumentSchema = z.object({
     uploadOnBehalf: z.enum(["student", 'teacher', 'other']),
     category: z.enum(["student", 'teacher', 'other']),
     subCategory: z.enum(["student", 'teacher', 'other']),
-    documentOriginCountry: z.enum(["India","other"]),
+    documentOriginCountry: z.enum(["India", "other"]),
     file: z.string().optional(),
 })
 export const checklistSchema = z.object({
-    selectedCourse: z.enum(["Course 1", 'Course 2','Course 3'])
+    selectedCourse: z.enum(["Course 1", 'Course 2', 'Course 3'])
 })
 export const previsachecklistSchema = z.object({
-    selectedCourse: z.enum(["Course 1", 'Course 2','Course 3'])
+    selectedCourse: z.enum(["Course 1", 'Course 2', 'Course 3'])
 })
 export const visachecklistSchema = z.object({
-    selectedCourse: z.enum(["Course 1", 'Course 2','Course 3'])
+    selectedCourse: z.enum(["Course 1", 'Course 2', 'Course 3'])
 })
 
 export type BasicInfo = z.infer<typeof basicInformationSchema>;
