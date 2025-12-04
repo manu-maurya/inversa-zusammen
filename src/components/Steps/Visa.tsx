@@ -1,13 +1,21 @@
-import React from "react";
 import type { useForm } from "react-hook-form";
 import type { StepFormData } from "../../types";
-
+import { useState } from "react";
+import { Label } from "../ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 interface StepProps {
   register: ReturnType<typeof useForm<StepFormData>>["register"];
   errors: Record<string, { message?: string }>;
   setValue?: ReturnType<typeof useForm<StepFormData>>["setValue"];
 }
-const Visa = ({ register, errors }: StepProps) => {
+const Visa = ({ register, errors, setValue }: StepProps) => {
+  const [selectedCourse, setSelectedCourse] = useState("");
   return (
     <div className="space-y-4">
       <p className="text-sm font-normal">
@@ -20,19 +28,34 @@ const Visa = ({ register, errors }: StepProps) => {
         Please upload the document as per document checklist.
       </p>
       <div>
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">
-            Select Course
-          </label>
-          <input
-            type="text"
-            id="selectedCourse"
-            {...register("selectedCourse")}
-            {...errors}
-            disabled
-            placeholder="subscription"
-            className="w-full rounded-md border border-gray-400 px-4 py-2 text-sm outline-none focus:border-black focus:ring-1 focus:ring-gray-800"
-          />
+        <div className="space-y-2">
+          <Label htmlFor="selectedCourse">
+            Selected Course
+            <span className="text-red-500">*</span>
+          </Label>
+          <Select
+            onValueChange={(value) => {
+              setValue?.(
+                "selectedCourse",
+                value as Extract<
+                  StepFormData,
+                  { selectedCourse: string }
+                >["selectedCourse"],
+                { shouldValidate: true }
+              );
+              setSelectedCourse(value);
+            }}
+            value={selectedCourse}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select" />
+            </SelectTrigger>
+            <SelectContent className="bg-white">
+              <SelectItem value="Course 1">Course 1</SelectItem>
+              <SelectItem value="Course 2">Course 2</SelectItem>
+              <SelectItem value="Course 3">Course 3</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
         <div className="grid grid-cols-2 mt-10">
           <input

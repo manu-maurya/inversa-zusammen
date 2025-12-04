@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useMultiStepForm } from "../hooks/useMultiStepFOrm";
-import { FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import type { StepFormData } from "../types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -57,7 +57,11 @@ const MultiStepForm = () => {
         console.log("Failed", error);
       }
     } else {
-      goToNext();
+      try {
+        goToNext();
+      } catch (error) {
+        console.log("page", error);
+      }
     }
   };
   return (
@@ -114,22 +118,42 @@ const MultiStepForm = () => {
 
           <div className="space-y-4">
             {currentStep === 0 && (
-              <BasicInfoStep register={register} errors={errors} />
+              <BasicInfoStep
+                register={register}
+                errors={errors}
+                setValue={setValue}
+              />
             )}
             {currentStep === 1 && (
-              <StudentDocStep register={register} errors={errors} />
+              <StudentDocStep
+                register={register}
+                errors={errors}
+                setValue={setValue}
+              />
             )}
             {currentStep === 2 && (
-              <ApplicationChecklistStep register={register} errors={errors} />
+              <ApplicationChecklistStep
+                register={register}
+                errors={errors}
+                setValue={setValue}
+              />
             )}
             {currentStep === 3 && (
-              <PreVisaChecklistStep register={register} errors={errors} />
+              <PreVisaChecklistStep
+                register={register}
+                errors={errors}
+                setValue={setValue}
+              />
             )}
             {currentStep === 4 && (
-              <VisaCheckListSTep register={register} errors={errors} />
+              <VisaCheckListSTep
+                register={register}
+                errors={errors}
+                setValue={setValue}
+              />
             )}
             <div className="mt-8 flex items-baseline justify-between gap-3 pt-6 ">
-              {isFirst && (
+              {!isFirst && (
                 <button
                   type="button"
                   onClick={goToPrevious}
