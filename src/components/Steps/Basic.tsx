@@ -37,6 +37,8 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
             label="Student ID"
             register={register}
             errors={errors}
+            placeholder="apc/2025/10380"
+            disabled={true}
           />
         </div>
         <div>
@@ -45,6 +47,8 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
             label="Member Since"
             register={register}
             errors={errors}
+            disabled={true}
+            placeholder="2025-07-25"
           />
         </div>
         <div className="space-y-2">
@@ -79,6 +83,8 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
             label="Managed Type"
             register={register}
             errors={errors}
+            placeholder="Managed by Agency (B2B Agent)"
+            disabled={true}
           />
         </div>
       </div>
@@ -90,6 +96,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
             label="First Name"
             register={register}
             errors={errors}
+            placeholder="Aman"
           />
         </div>
         <div>
@@ -98,6 +105,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
             label="Last Name"
             register={register}
             errors={errors}
+            placeholder="Deshmukh"
           />
         </div>
       </div>
@@ -108,6 +116,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
             label="Student Email Address"
             register={register}
             errors={errors}
+            placeholder="amandesmuk@gmail.com"
           />
         </div>
         <div className="grid grid-cols-2 ">
@@ -117,6 +126,8 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
               label="Country Code"
               register={register}
               errors={errors}
+              placeholder="+91"
+              disabled={true}
             />
           </div>
           <div>
@@ -125,6 +136,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
               label="Phone Number"
               register={register}
               errors={errors}
+              placeholder="9812345678"
             />
           </div>
         </div>
@@ -156,7 +168,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
             value={gender}
           >
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Male" />
+              <SelectValue placeholder="Select a Gender" />
             </SelectTrigger>
             <SelectContent className="bg-white">
               <SelectItem value="male">Male</SelectItem>
@@ -185,7 +197,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
             value={country}
           >
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="India" />
+              <SelectValue placeholder="Select your Country" />
             </SelectTrigger>
             <SelectContent className="bg-white">
               <SelectItem value="India">India</SelectItem>
@@ -213,7 +225,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
             value={currentState}
           >
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Karnataka" />
+              <SelectValue placeholder="Select your State" />
             </SelectTrigger>
             <SelectContent className="bg-white">
               <SelectItem value="karnataka">Karnataka</SelectItem>
@@ -245,7 +257,7 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
               value={citizen}
             >
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Indian" />
+                <SelectValue placeholder="Select Citizenship" />
               </SelectTrigger>
               <SelectContent className="bg-white">
                 <SelectItem value="Indian">Indian</SelectItem>
@@ -260,21 +272,23 @@ const Basic = ({ register, errors, setValue }: StepProps) => {
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
-            <FormField
-              id="accountType"
-              label="Account Type"
-              register={register}
-              errors={errors}
-            />
-          </div>
+          <FormField
+            id="accountType"
+            label="Account Type"
+            register={register}
+            errors={errors}
+            placeholder="Account"
+          />
+        </div>
         <div>
-            <FormField
-              id="address"
-              label="Address"
-              register={register}
-              errors={errors}
-            />
-          </div>
+          <FormField
+            id="address"
+            label="Address"
+            register={register}
+            errors={errors}
+            placeholder="Address"
+          />
+        </div>
       </div>
     </div>
   );

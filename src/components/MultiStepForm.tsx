@@ -3,6 +3,7 @@ import { useMultiStepForm } from "../hooks/useMultiStepFOrm";
 import { useForm } from "react-hook-form";
 import type { StepFormData } from "../types";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
 import {
   ApplicationChecklistStep,
   BasicInfoStep,
@@ -10,8 +11,10 @@ import {
   StudentDocStep,
   VisaCheckListSTep,
 } from "./Steps";
+import { Check } from "lucide-react";
 
 const MultiStepForm = () => {
+  
   const {
     currentStep,
     formData,
@@ -40,6 +43,7 @@ const MultiStepForm = () => {
     mode: "onChange",
     defaultValues: formData,
   });
+  const navigate = useNavigate();
   useEffect(() => {
     reset(formData);
   }, [currentStep, formData, reset]);
@@ -53,6 +57,7 @@ const MultiStepForm = () => {
     if (isLast) {
       try {
         submitForm(updatedData);
+        navigate('/final')
       } catch (error) {
         console.log("Failed", error);
       }
@@ -68,26 +73,30 @@ const MultiStepForm = () => {
     <div className="min-h-screen bg-white flex flex-col items-center pb-12">
       <div className="w-full h-16 bg-white px-12 mt-2 flex items-center justify-between">
         <img src="src/assets/logo.png" alt="logo" />
-        <button className="border border-gray-300 px-4 py-2 rounded-md text-sm hover:bg-gray-50 hover:scale-105 transition-all">
+        <button
+          className="border border-gray-300 px-4 py-2 rounded-md text-sm hover:bg-gray-50 hover:scale-105 transition-all"
+          onClick={goToPrevious}
+        >
           Go back
         </button>
       </div>
       <div className="w-full max-w-4xl mt-8 px-4">
-        <div className="flex justify-between relative mb-12 max-w-3xl mx-auto">
-          {/* Background Line */}
-          <div className="absolute top-4 left-0 w-full h-0.5 bg-gray-200 -z-10" />
-
+        <div className="flex justify-between items-center mb-12 max-w-3xl mx-auto">
           {steps.map((step, index) => {
             const isCompleted = index < currentStep;
             const isActive = index === currentStep;
+            const isLast = index === steps.length - 1;
 
             return (
               <div
                 key={step.id}
-                className="flex flex-col items-center bg-transparent"
+                className={`${
+                  isLast ? "flex-none" : "flex-1 flex items-center"
+                }`}
               >
-                <div
-                  className={`w-4 h-4 rounded-full flex items-center justify-center text-sm font-semibold transition-colors duration-200
+                <div className="flex flex-col items-center">
+                  <div
+                    className={`w-4 h-4 rounded-full flex items-center justify-center text-sm font-semibold transition-colors duration-200
                     ${
                       isActive
                         ? "bg-blue-300 text-blue-600"
@@ -95,18 +104,37 @@ const MultiStepForm = () => {
                         ? "bg-green-500 border-green-500 text-white"
                         : "bg-gray-300 text-gray-400"
                     }`}
-                >
-                  {isCompleted ? "✓" : ""}
+                  >
+                    {isCompleted ? (
+                      <Check className="w-3 h-3 absolute text-white font-bold" />
+                    ) : (
+                      ""
+                    )}
+                    {index < steps.length - 1 && (
+                      <div
+                        className={`flex-1 h-0.5 mx-2 transition-colors ${
+                          isCompleted ? "bg-green-400" : "bg-blue-400"
+                        }`}
+                      />
+                    )}
+                  </div>
+                  <span
+                    className={`absolute z-10 text-xs mt-5 font-medium ${
+                      isActive
+                        ? "text-black font-bold"
+                        : "text-gray-500 font-normal"
+                    }`}
+                  >
+                    {step.name}
+                  </span>
                 </div>
-                <span
-                  className={`text-xs mt-2 font-medium ${
-                    isActive
-                      ? "text-black font-bold"
-                      : "text-gray-500 font-normal"
-                  }`}
-                >
-                  {step.name}
-                </span>
+                {index < steps.length - 1 && (
+                  <div
+                    className={`flex-1 h-0.5 mx-2 transition-colors ${
+                      isCompleted ? "bg-green-400" : "bg-gray-200"
+                    }`}
+                  />
+                )}
               </div>
             );
           })}
@@ -152,7 +180,7 @@ const MultiStepForm = () => {
                 setValue={setValue}
               />
             )}
-            <div className="mt-8 flex items-baseline justify-between gap-3 pt-6 ">
+            <div className="mt-8 flex items-center justify-between gap-3 pt-6 ">
               {!isFirst && (
                 <button
                   type="button"

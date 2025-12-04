@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router-dom";
 import "./index.css";
 import Final from "./pages/Final";
 import Form from "./pages/Form";
@@ -5,7 +6,12 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <Form/>
+    <Routes>
+      
+      <Route path="/home" element={<Home/>}/>
+      <Route path="/form" element={<Form/>}/>
+      <Route path="/final" element={<Final/>}/>
+    </Routes>
   );
 }
 

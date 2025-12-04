@@ -37,7 +37,7 @@ const Docs = ({ register, errors, setValue }: StepProps) => {
         <div className="space-y-2">
           <Label htmlFor="uploadOnBehalf">
             Upload on Behalf
-            <span className="text-red-500">*</span>
+            
           </Label>
           <Select
             onValueChange={(value) => {
@@ -66,7 +66,7 @@ const Docs = ({ register, errors, setValue }: StepProps) => {
         <div className="space-y-2">
           <Label htmlFor="category">
             Document Category
-            <span className="text-red-500">*</span>
+            
           </Label>
           <Select
             onValueChange={(value) => {
@@ -95,7 +95,7 @@ const Docs = ({ register, errors, setValue }: StepProps) => {
         <div className="space-y-2">
           <Label htmlFor="subCategory">
             Document Sub-Category
-            <span className="text-red-500">*</span>
+            
           </Label>
           <Select
             onValueChange={(value) => {
@@ -124,7 +124,7 @@ const Docs = ({ register, errors, setValue }: StepProps) => {
         <div className="space-y-2">
           <Label htmlFor="documentOriginCountry">
             Document Category
-            <span className="text-red-500">*</span>
+            
           </Label>
           <Select
             onValueChange={(value) => {
