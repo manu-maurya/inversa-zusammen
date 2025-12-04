@@ -70,7 +70,7 @@ export function useMultiStepForm() {
   };
   const goToPrevious = () => {
     if (!isFirst) setCurrentStep((prev) => prev - 1);
-    if (isFirst) navigate("/home");
+    if (isFirst) navigate("/");
   };
   const updateForm = (newData: StepFormData) => {
     setFOrmData((prev) => ({ ...prev, ...newData }));
