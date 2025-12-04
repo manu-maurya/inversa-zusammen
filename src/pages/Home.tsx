@@ -15,7 +15,7 @@ const Home = () => {
       <div className="hidden w-1/2 flex-col items-center relative lg:flex">
         <div className="absolute inset-0 z-0">
           <img
-            src="src/assets/home.png"
+            src="/home.png"
             alt="home"
             className="h-full w-full object-cover opacity-80"
           />
