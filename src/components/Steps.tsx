@@ -1,4 +1,3 @@
-import React from "react";
 import type { useForm } from "react-hook-form";
 import type { StepFormData } from "../types";
 import Basic from "./Steps/Basic";
