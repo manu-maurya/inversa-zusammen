@@ -31,7 +31,7 @@ const PreVisa = ({ register, errors, setValue }: StepProps) => {
         <div className="space-y-2">
           <Label htmlFor="selectedCourse">
             Selected Course
-            <span className="text-red-500">*</span>
+            
           </Label>
           <Select
             onValueChange={(value) => {

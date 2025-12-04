@@ -1,4 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  const navigate = useNavigate();
+  const onSignUp = async () => {
+    try {
+      navigate("/form");
+    } catch (error) {
+      console.log("Login error", error);
+    }
+  };
   return (
     <div className="flex min-h-screen w-full bg-white">
       {/* Image */}
@@ -42,8 +52,7 @@ const Home = () => {
               </label>
               <input
                 type="text"
-                name=""
-                id=""
+                id="name"
                 placeholder="Example"
                 className="w-full rounded-md border border-gray-400 px-4 py-2 text-sm outline-none focus:border-black focus:ring-1 focus:ring-gray-800"
               />
@@ -54,8 +63,7 @@ const Home = () => {
               </label>
               <input
                 type="email"
-                name=""
-                id=""
+                id="email"
                 placeholder="example@mail.com"
                 className="w-full rounded-md border border-gray-400 px-4 py-2 text-sm outline-none focus:border-black focus:ring-1 focus:ring-gray-800"
               />
@@ -68,8 +76,7 @@ const Home = () => {
                 <span className="flex items-center pr-3 text-sm ">+91 </span>
                 <input
                   type="tel"
-                  name=""
-                  id=""
+                  id="phone"
                   placeholder="98450 98450"
                   className="w-full border-none text-sm outline-none"
                 />
@@ -81,8 +88,7 @@ const Home = () => {
               </label>
               <input
                 type="password"
-                name=""
-                id=""
+                id="password"
                 placeholder="password"
                 className="w-full rounded-md border border-gray-400 px-4 py-2 text-sm outline-none focus:border-black focus:ring-1 focus:ring-gray-800"
               />
@@ -93,15 +99,17 @@ const Home = () => {
               </label>
               <input
                 type="password"
-                name=""
-                id=""
+                id="confirmpassword"
                 placeholder="password"
                 className="w-full rounded-md border border-gray-400 px-4 py-2 text-sm outline-none focus:border-black focus:ring-1 focus:ring-gray-800"
               />
             </div>
           </form>
           {/* button */}
-          <button className="w-full bg-[#29394D] p-2 text-white font-md rounded-md mt-6 hover:bg-[#29394D]/90 hover:scale-105 transition-all">
+          <button
+            className="w-full bg-[#29394D] p-2 text-white font-md rounded-md mt-6 hover:bg-[#29394D]/90 hover:scale-105 transition-all"
+            onClick={onSignUp}
+          >
             Signup
           </button>
           <div className="mt-6 text-center">

@@ -4,7 +4,7 @@ import z from "zod";
 export const basicInformationSchema = z.object({
     studentId: z.string().optional(),
     memberSince: z.string().optional(),
-    subscriptionStatus: z.enum(['subscribed', 'unsubscribed', 'expired']),
+    subscriptionStatus: z.enum(['subscribed', 'unsubscribed', 'expired']).default("subscribed").optional(),
     managedType: z.string(),
     firstName: z.string().min(1, "First name is required"),
     lastName: z.string().min(1, "Last name is required"),

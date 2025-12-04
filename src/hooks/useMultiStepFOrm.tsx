@@ -9,6 +9,7 @@ import {
   type StepFormData,
 } from "../types";
 import { User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 const stepSchema = [
   basicInformationSchema,
   studentsDocumentSchema,
@@ -61,7 +62,7 @@ export function useMultiStepForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const isFirst = currentStep === 0;
   const isLast = currentStep === steps.length - 1;
-
+  const navigate = useNavigate();
   const getCurrentStepSchema = () => stepSchema[currentStep];
 
   const goToNext = () => {
@@ -69,6 +70,7 @@ export function useMultiStepForm() {
   };
   const goToPrevious = () => {
     if (!isFirst) setCurrentStep((prev) => prev - 1);
+    if (isFirst) navigate("/home");
   };
   const updateForm = (newData: StepFormData) => {
     setFOrmData((prev) => ({ ...prev, ...newData }));

@@ -32,7 +32,7 @@ const Application = ({ register, errors, setValue }: StepProps) => {
         <div className="space-y-2">
           <Label htmlFor="selectedCourse">
             Selected Course
-            <span className="text-red-500">*</span>
+            
           </Label>
           <Select
             onValueChange={(value) => {
@@ -52,7 +52,7 @@ const Application = ({ register, errors, setValue }: StepProps) => {
               <SelectValue placeholder="Select" />
             </SelectTrigger>
             <SelectContent className="bg-white">
-              <SelectItem value="Course 1">Course </SelectItem>
+              <SelectItem value="Course 1">Course 1</SelectItem>
               <SelectItem value="Course 2">Course 2</SelectItem>
               <SelectItem value="Course 3">Course 3</SelectItem>
             </SelectContent>

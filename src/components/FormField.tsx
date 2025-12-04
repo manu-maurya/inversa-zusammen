@@ -11,6 +11,8 @@ const FormField = ({
   errors,
   type = "text",
   maxLength,
+  placeholder,
+  disabled,
 }: {
   id: keyof AllFormField;
   label: string;
@@ -18,11 +20,21 @@ const FormField = ({
   errors: Record<string, { message?: string }>;
   type?: string;
   maxLength?: number;
+  placeholder?: string;
+  disabled?: boolean;
 }) => {
   return (
     <div className="space-y-2">
       <Label htmlFor={id}>{label}</Label>
-      <Input id={id} type={type} maxLength={maxLength} {...register(id)} />
+      <Input
+        id={id}
+        type={type}
+        maxLength={maxLength}
+        {...register(id)}
+        placeholder={placeholder}
+        disabled={disabled}
+        className={`${disabled ? "font-bold" : ""}`}
+      />
       {errors[id] && (
         <p className="text-sm text-destructive">{errors[id]?.message}</p>
       )}
